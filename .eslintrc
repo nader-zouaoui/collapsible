@@ -1,0 +1,137 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false,
+    "ecmaVersion": 2018
+  },
+  "root": true,
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/babel",
+    "plugin:css-modules/recommended",
+    "react-app",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "plugins": ["prettier", "prefer-arrow", "css-modules", "@typescript-eslint", "import", "react-hooks"],
+  "rules": {
+    // "typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-empty-function": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/prop-types": "off",
+    "no-extra-parens": "off",
+    "no-return-await": "off",
+    "no-await-in-loop": "off",
+    "no-plusplus": "off",
+    "no-underscore-dangle": "off",
+    "space-before-function-paren": "off",
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": false }],
+    "prefer-const": "error",
+    "no-console": "warn",
+    "react/jsx-filename-extension": "off",
+    "no-const-assign": "error",
+    "camelcase": "off",
+    "import/extensions": "off",
+    "no-case-declarations": "warn",
+    "@typescript-eslint/no-empty-function": "warn",
+    "import/no-anonymous-default-export": "off",
+    "no-var": "error",
+    "react/jsx-indent": "off",
+    "@typescript-eslint/no-use-before-define": ["off"],
+    "no-param-reassign": "off",
+    "no-unused-expressions": "off",
+    "max-len": ["warn", { "code": 140 }],
+    "react/prefer-stateless-function": "error",
+    "prefer-promise-reject-errors": ["off"],
+    "react/jsx-props-no-spreading": "off",
+    "no-return-assign": ["off"],
+    "import/no-cycle": [0, { "maxDepth": 3 }],
+    "import/imports-first": 0,
+    "max-lines": ["warn", 165],
+    "import/newline-after-import": 0,
+    "react/no-danger": "off",
+    "import/no-dynamic-require": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 0,
+    "import/no-unresolved": 2,
+    "import/no-webpack-loader-syntax": 0,
+    "import/prefer-default-export": 0,
+    "no-unused-vars": "warn",
+    "no-use-before-define": 0,
+    "react/jsx-wrap-multilines": ["warn", { "declaration": false, "assignment": false }],
+    "prefer-template": 2,
+    "require-yield": 0,
+    "arrow-spacing": "warn",
+    "no-shadow": "off",
+
+    "prefer-arrow/prefer-arrow-functions": [
+      "warn",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false
+      }
+    ],
+    "newline-after-var": "warn",
+    "newline-before-return": "warn",
+    "jsx-a11y/interactive-supports-focus": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "react/no-typos": "error",
+    "react/destructuring-assignment": [0],
+    "react/require-default-props": [0],
+    "react/jsx-closing-tag-location": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-first-prop-new-line": [2, "multiline"],
+    "react/jsx-no-target-blank": 0,
+    "react/jsx-uses-vars": 2,
+    "react/require-extension": 0,
+    "react/self-closing-comp": 1,
+    "react/sort-comp": 0,
+    "prefer-destructuring": [
+      "warn",
+      {
+        "VariableDeclarator": {
+          "array": false,
+          "object": true
+        },
+        "AssignmentExpression": {
+          "array": true,
+          "object": true
+        }
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      },
+      "typescript": {
+        "project": "./tsconfig.json" // always try to resolve types under `<roo/>@types` directory even it doesn't contain any source code, like `@types/unist`
+      }
+    }
+  }
+}

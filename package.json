@@ -1,0 +1,100 @@
+{
+  "name": "@edonec/collapsible",
+  "version": "1.0.102",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "description": "edonec react collapsible",
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf build",
+    "build": "npm run clean && tsc && npm run resolve:modules && cp src/index.css build/index.css && cp src/icons.css build/icons.css && cp -r src/webfonts build/webfonts",
+    "build:dev": "tsc && npm run resolve:modules",
+    "start:prod": "npm run build:dev && node build/app.js ",
+    "debug": "npm run build:dev && node --inspect=9229 build/app.js ",
+    "start": "nodemon",
+    "start:dev": "ts-node -r tsconfig-paths/register src/app.ts",
+    "run:dev": "NODE_ENV=development nodemon build/app.js",
+    "lint": "eslint src/*.ts src/**/*.ts src/**/**/*.ts src/**/**/**/*.ts src/**/**/**/**/*.ts src/*.tsx src/**/*.tsx src/**/**/*.tsx src/**/**/**/*.tsx src/**/**/**/**/*.tsx --max-warnings=0 --fix",
+    "resolve:modules": "node scripts/resolveModules.js",
+    "prepare": "npm run build"
+  },
+  "jsonValidation": [
+    {
+      "fileMatch": ".eslintrc",
+      "url": "https://json.schemastore.org/eslintrc"
+    }
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(ts|tsx)": [
+      "prettier --write",
+      "npm run lint"
+    ]
+  },
+  "author": "eDonec",
+  "license": "ISC",
+  "dependencies": {
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "peerDependencies": {
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.1",
+    "typescript": "4.1.3",
+    "@types/react-dom": "17.0.1",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@types/eslint": "^6.8.1",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-loopback": "^13.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-css-modules": "^2.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prefer-arrow": "^1.2.1",
+    "eslint-plugin-prefer-arrow-functions": "^3.0.1",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.0.5",
+    "react-app-rewired": "^2.1.6",
+    "react-is": "^16.13.1",
+    "rimraf": "^3.0.2",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-prettier": "^1.1.2",
+    "ts-loader": "^7.0.5",
+    "tsconfig-paths": "^3.9.0",
+    "tspath": "^1.3.7"
+  }
+}
