@@ -10,9 +10,7 @@
   "extends": [
     "airbnb",
     "prettier",
-    "prettier/babel",
     "plugin:css-modules/recommended",
-    "react-app",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
@@ -30,6 +28,7 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "react-hooks/exhaustive-deps": "warn",
     "jsx-a11y/label-has-associated-control": "off",
+    "react/function-component-definition": "off",
     "react/prop-types": "off",
     "no-extra-parens": "off",
     "no-return-await": "off",

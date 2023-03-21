@@ -11,6 +11,7 @@ export interface ICollapsibleProps {
   iconUp?: React.ReactNode;
   iconDown?: React.ReactNode;
   collapsibleClassName?: string;
+  children?: React.ReactNode;
 }
 
 const Collapsible: React.FC<ICollapsibleProps> = ({
@@ -32,13 +33,15 @@ const Collapsible: React.FC<ICollapsibleProps> = ({
   const handleFilterOpening = () => {
     setIsOpen((prev) => !prev);
   };
+
   useEffect(() => {
     if (!height || !isOpen || !ref.current) return undefined;
-    // @ts-ignore
     const resizeObserver = new ResizeObserver((el) => {
       setHeight(el[0].contentRect.height);
     });
+
     resizeObserver.observe(ref.current);
+
     return () => {
       resizeObserver.disconnect();
     };
@@ -47,32 +50,26 @@ const Collapsible: React.FC<ICollapsibleProps> = ({
     if (isOpen) setHeight(ref.current?.getBoundingClientRect().height);
     else setHeight(0);
   }, [isOpen]);
+
   return (
-    <>
-      <div className={collapsibleClassName}>
-        <div>
-          <div className={headerClassName}>
-            <div className={titleClassName}>{header}</div>
-            <button type="button" className={iconButtonClassName} onClick={handleFilterOpening}>
-              {IconDown && IconUp ? (
-                isOpen ? (
-                  IconDown
-                ) : (
-                  IconUp
-                )
-              ) : (
-                <i className={`fas-edonec fa-chevron-down-edonec ${isOpen ? 'rotate-center-edonec down' : 'rotate-center-edonec up'}`} />
-              )}
-            </button>
-          </div>
-        </div>
-        <div className={contentClassName} style={{ height }}>
-          <div ref={ref}>
-            <div className={contentContainerClassName}>{children}</div>
-          </div>
+    <div className={collapsibleClassName}>
+      <div>
+        <div className={headerClassName}>
+          <div className={titleClassName}>{header}</div>
+          <button type="button" className={iconButtonClassName} onClick={handleFilterOpening}>
+            {IconDown && IconUp && (isOpen ? IconDown : IconUp)}
+            {!(IconDown && IconUp) && (
+              <i className={`fas-edonec fa-chevron-down-edonec ${isOpen ? 'rotate-center-edonec down' : 'rotate-center-edonec up'}`} />
+            )}
+          </button>
         </div>
       </div>
-    </>
+      <div className={contentClassName} style={{ height }}>
+        <div ref={ref}>
+          <div className={contentContainerClassName}>{children}</div>
+        </div>
+      </div>
+    </div>
   );
 };
 
